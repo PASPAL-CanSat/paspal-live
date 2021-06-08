@@ -1,0 +1,12 @@
+body {
+    background-color: black;
+    color: white;
+}
+header h1 {
+    text-align: center;
+    font-size: 3em;
+    text-transform: uppercase;
+}
+#time {
+    color: aqua;
+}
