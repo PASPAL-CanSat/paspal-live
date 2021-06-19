@@ -1,5 +1,7 @@
 <?php
 
+header('X-Frame-Options: SAMEORIGIN');
+
 require_once('Db.php');
 Db::connect("89.203.192.60", "data", "root", "PaspalLetiDoVesmiruXD95");
 $data = Db::queryAll('
@@ -25,7 +27,7 @@ foreach ($data as $d)
 
 function vyska($vyska)
 {
-    $cont = $vyska . " metrů";
+    $cont = $vyska . " metru";
     $var=fopen("vyska.txt","w");
     fwrite($var, $cont);
     fclose($var);
