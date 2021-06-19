@@ -1,12 +1,8 @@
-body {
-    background-color: black;
+#panel-card {
+    border-color: black;
+    border-width: 2px;
+}
+#panel-card-header {
+    background-color: #283593;
     color: white;
-}
-header h1 {
-    text-align: center;
-    font-size: 3em;
-    text-transform: uppercase;
-}
-#time {
-    color: aqua;
 }
