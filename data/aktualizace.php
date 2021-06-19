@@ -14,6 +14,10 @@ foreach ($data as $d)
     teplota($d['teplota']);
     vyska($d['vyska']);
     rychlost($d['rychlost']);
+    vlhkost($d['vlhkost']);
+    metan($d['metan']);
+    gps_zs($d['gps_zs']);
+    gps_zd($d['gps_zd']);
 }
 
 function vyska($vyska)
@@ -34,6 +38,34 @@ function rychlost($rychlost)
 {
     $cont = $rychlost . " m/s";
     $var=fopen("rychlost.txt","w");
+    fwrite($var, $cont);
+    fclose($var);
+}
+function vlhkost($vlhkost)
+{
+    $cont = $vlhkost . " %";
+    $var=fopen("vlhkost.txt","w");
+    fwrite($var, $cont);
+    fclose($var);
+}
+function metan($metan)
+{
+    $cont = $metan . " %";
+    $var=fopen("metan.txt","w");
+    fwrite($var, $cont);
+    fclose($var);
+}
+function gps_zs($gps_zs)
+{
+    $cont = $gps_zs;
+    $var=fopen("gps_zs.txt","w");
+    fwrite($var, $cont);
+    fclose($var);
+}
+function gps_zd($gps_zd)
+{
+    $cont = $gps_zd;
+    $var=fopen("gps_zd.txt","w");
     fwrite($var, $cont);
     fclose($var);
 }
