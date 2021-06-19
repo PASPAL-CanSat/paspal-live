@@ -7,6 +7,7 @@
 		<meta name="description" content="Živý přístup k datům z našeho satelitu." />
 		<meta name="keywords" content="paspal, live, space, satelit, živě, data" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-Frame-Options" content="sameorigin">
         <link href="css/style.css" rel="stylesheet" type="text/css">
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -26,7 +27,7 @@
             document.getElementById('iframe5').contentWindow.location.reload();
             document.getElementById('iframe6').contentWindow.location.reload();
             document.getElementById('iframe7').contentWindow.location.reload();
-            document.getElementById('iframe10').contentWindow.location.reload();
+            document.getElementById('iframe8').contentWindow.location.reload();
         }
 
         setInterval(function() {
@@ -36,20 +37,10 @@
                     console.log(request.responseText);
                 }
             }
-            request.open('GET', 'http://localhost/data/aktualizace.php', true);
+            request.open('GET', '/data/aktualizace.php', true);
             request.send();
 
         }, 3000);
-
-        function populatePre(url) {
-            let xhr = new XMLHttpRequest();
-            xhr.onload = function () {
-                document.getElementById('zaznam').textContent = this.responseText;
-            };
-            xhr.open('GET', url);
-            xhr.send();
-        }
-        populatePre('/data/zaznam.txt');
     </script>
 	<body class="bg-dark text-white">
     <?php
@@ -70,7 +61,7 @@
                                     <h3>Aktuální výška n. m.</h3>
                                 </div>
                                 <div class="card-body">
-                                    <iframe id="iframe" src="/data/vyska.txt" width="100%" height="42px"></iframe>
+                                    <iframe id="iframe" src="data/vyska.txt" width="100%" height="42px"></iframe>
                                 </div>
                             </div>
                         </div>
@@ -100,7 +91,7 @@
                                     <h3>Poslední záznam</h3>
                                 </div>
                                 <div class="card-body">
-                                    <iframe id="iframe10" src="/data/zaznam.txt" width="100%" height="42px"></iframe>
+                                    <iframe id="iframe8" src="/data/zaznam.txt" width="100%" height="42px"></iframe>
                                 </div>
                             </div>
                         </div>
