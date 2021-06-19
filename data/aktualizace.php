@@ -18,6 +18,9 @@ foreach ($data as $d)
     metan($d['metan']);
     gps_zs($d['gps_zs']);
     gps_zd($d['gps_zd']);
+    oxid($d['oxid']);
+    tlak($d['tlak']);
+    zaznam($d['datum']);
 }
 
 function vyska($vyska)
@@ -66,6 +69,27 @@ function gps_zd($gps_zd)
 {
     $cont = $gps_zd;
     $var=fopen("gps_zd.txt","w");
+    fwrite($var, $cont);
+    fclose($var);
+}
+function tlak($tlak)
+{
+    $cont = $tlak . " Pa";
+    $var=fopen("tlak.txt","w");
+    fwrite($var, $cont);
+    fclose($var);
+}
+function oxid($oxid)
+{
+    $cont = $oxid . " %";
+    $var=fopen("oxid.txt","w");
+    fwrite($var, $cont);
+    fclose($var);
+}
+function zaznam($zaznam)
+{
+    $cont = $zaznam;
+    $var=fopen("zaznam.txt","w");
     fwrite($var, $cont);
     fclose($var);
 }

@@ -24,6 +24,9 @@
             document.getElementById('iframe3').contentWindow.location.reload();
             document.getElementById('iframe4').contentWindow.location.reload();
             document.getElementById('iframe5').contentWindow.location.reload();
+            document.getElementById('iframe6').contentWindow.location.reload();
+            document.getElementById('iframe7').contentWindow.location.reload();
+            document.getElementById('iframe10').contentWindow.location.reload();
         }
 
         setInterval(function() {
@@ -37,6 +40,16 @@
             request.send();
 
         }, 3000);
+
+        function populatePre(url) {
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                document.getElementById('zaznam').textContent = this.responseText;
+            };
+            xhr.open('GET', url);
+            xhr.send();
+        }
+        populatePre('/data/zaznam.txt');
     </script>
 	<body class="bg-dark text-white">
     <?php
@@ -81,8 +94,19 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col">
+                            <div class="card" id="panel-card">
+                                <div class="card-header" id="panel-card-header">
+                                    <h3>Poslední záznam</h3>
+                                </div>
+                                <div class="card-body">
+                                    <iframe id="iframe10" src="/data/zaznam.txt" width="100%" height="42px"></iframe>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="row text-dark mezera-top">
+                    <div class="mezera"></div>
+                    <div class="row text-dark">
                         <div class="col">
                             <div class="card" id="panel-card">
                                 <div class="card-header" id="panel-card-header">
@@ -103,15 +127,36 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col">
+                            <div class="card" id="panel-card">
+                                <div class="card-header" id="panel-card-header">
+                                    <h3>Oxid uhličitý</h3>
+                                </div>
+                                <div class="card-body">
+                                    <iframe id="iframe6" src="/data/oxid.txt" width="100%" height="42px"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card" id="panel-card">
+                                <div class="card-header" id="panel-card-header">
+                                    <h3>Atmosférický tlak</h3>
+                                </div>
+                                <div class="card-body">
+                                    <iframe id="iframe7" src="/data/tlak.txt" width="100%" height="42px"></iframe>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="row text-dark mezera-top">
+                    <div class="mezera"></div>
+                    <div class="row text-dark">
                         <div class="col">
                             <div class="card" id="panel-card">
                                 <div class="card-header" id="panel-card-header">
                                     <h3>Mapa</h3>
                                 </div>
                                 <div class="card-body">
-                                    <div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=<?= $zd ?>,<?= $zs ?>+(Satelit)&amp;t=k&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
+                                    <div style="width: 100%"><iframe id="iframe8" width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=<?= $zd ?>,<?= $zs ?>+(Satelit)&amp;t=k&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
                                 </div>
                             </div>
                         </div>
@@ -120,7 +165,7 @@
             </div>
         </section>
         <footer>
-            <p>&copy; PASPAL.SPACE <?= date('Y') ?></p>
+            <p>&copy; PASPAL.SPACE <?= date('Y') ?>
         </footer>
     </div>
 	</body>
