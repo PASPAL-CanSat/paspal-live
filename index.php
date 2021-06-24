@@ -12,14 +12,20 @@
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+        <!-- Script -->
+        <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
 	</head>
     <script>
         window.setInterval(function() {
             reloadIFrame()
         }, 3000);
 
+        window.setInterval(function() {
+            aktualizaceMapy()
+        }, 8000);
+
         function reloadIFrame() {
-            console.log('reloading..');
+            console.log('Aktualizace dat..');
             document.getElementById('iframe').contentWindow.location.reload();
             document.getElementById('iframe2').contentWindow.location.reload();
             document.getElementById('iframe3').contentWindow.location.reload();
@@ -28,6 +34,11 @@
             document.getElementById('iframe6').contentWindow.location.reload();
             document.getElementById('iframe7').contentWindow.location.reload();
             document.getElementById('iframe8').contentWindow.location.reload();
+        }
+
+        function aktualizaceMapy() {
+            console.log('Aktualizace mapy..');
+            document.getElementById('iframe9').contentWindow.location.reload();
         }
 
         setInterval(function() {
@@ -43,10 +54,6 @@
         }, 3000);
     </script>
 	<body class="bg-dark text-white">
-    <?php
-    $zs = file_get_contents('./data/gps_zs.txt', true);;
-    $zd = file_get_contents('./data/gps_zd.txt', true);;
-    ?>
     <div class="text-center">
         <header>
             <h1 class="display-1">PASPAL LIVE</h1>
@@ -147,7 +154,7 @@
                                     <h3>Mapa</h3>
                                 </div>
                                 <div class="card-body">
-                                    <div style="width: 100%"><iframe id="iframe8" width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=<?= $zd ?>,<?= $zs ?>+(Satelit)&amp;t=k&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
+                                    <iframe id="iframe9" width="100%" height="400px" scrolling="no" frameborder="0" src="data/mapa.php"></iframe>
                                 </div>
                             </div>
                         </div>
