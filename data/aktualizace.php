@@ -3,10 +3,10 @@
 header('X-Frame-Options: SAMEORIGIN');
 
 require_once('Db.php');
-Db::connect("89.203.192.60", "data", "root", "PaspalLetiDoVesmiruXD95");
+Db::connect("sql.endora.cz:3310", "mcserver", "mcserver", "9R1KhAbalienzmHH");
 $data = Db::queryAll('
     SELECT *
-    FROM satelit
+    FROM zaznamy
     ORDER BY id_zaznamu DESC
     LIMIT 1
 ');
