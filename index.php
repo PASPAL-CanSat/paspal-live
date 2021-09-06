@@ -14,27 +14,13 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
         <!-- Script -->
         <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	</head>
     <script>
         window.setInterval(function() {
-            reloadIFrame()
-        }, 3000);
-
-        window.setInterval(function() {
             aktualizaceMapy()
         }, 8000);
-
-        function reloadIFrame() {
-            console.log('Aktualizace dat..');
-            document.getElementById('iframe').contentWindow.location.reload();
-            document.getElementById('iframe2').contentWindow.location.reload();
-            document.getElementById('iframe3').contentWindow.location.reload();
-            document.getElementById('iframe4').contentWindow.location.reload();
-            document.getElementById('iframe5').contentWindow.location.reload();
-            document.getElementById('iframe6').contentWindow.location.reload();
-            document.getElementById('iframe7').contentWindow.location.reload();
-            document.getElementById('iframe8').contentWindow.location.reload();
-        }
 
         function aktualizaceMapy() {
             console.log('Aktualizace mapy..');
@@ -68,7 +54,7 @@
                                     <h3>Aktuální výška n. m.</h3>
                                 </div>
                                 <div class="card-body">
-                                    <iframe id="iframe" src="data/vyska.txt" width="100%" height="42px"></iframe>
+                                    <span id="vyska">Data nejsou k dispozici</span>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +64,7 @@
                                     <h3>Aktuální rychlost</h3>
                                 </div>
                                 <div class="card-body">
-                                    <iframe id="iframe2" src="/data/rychlost.txt" width="100%" height="42px"></iframe>
+                                    <span id="rychlost">Data nejsou k dispozici</span>
                                 </div>
                             </div>
                         </div>
@@ -88,7 +74,7 @@
                                     <h3>Aktuální teplota</h3>
                                 </div>
                                 <div class="card-body">
-                                    <iframe id="iframe3" src="/data/teplota.txt" width="100%" height="42px"></iframe>
+                                    <span id="teplota">Data nejsou k dispozici</span>
                                 </div>
                             </div>
                         </div>
@@ -98,7 +84,7 @@
                                     <h3>Poslední záznam</h3>
                                 </div>
                                 <div class="card-body">
-                                    <iframe id="iframe8" src="/data/zaznam.txt" width="100%" height="42px"></iframe>
+                                    <span id="zaznam">Data nejsou k dispozici</span>
                                 </div>
                             </div>
                         </div>
@@ -108,20 +94,10 @@
                         <div class="col">
                             <div class="card" id="panel-card">
                                 <div class="card-header" id="panel-card-header">
-                                    <h3>Aktuální vlhkost</h3>
+                                    <h3>Přírodní plyny</h3>
                                 </div>
                                 <div class="card-body">
-                                    <iframe id="iframe4" src="/data/vlhkost.txt" width="100%" height="42px"></iframe>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card" id="panel-card">
-                                <div class="card-header" id="panel-card-header">
-                                    <h3>Naměřený metan</h3>
-                                </div>
-                                <div class="card-body">
-                                    <iframe id="iframe5" src="/data/metan.txt" width="100%" height="42px"></iframe>
+                                    <span id="mq4">Data nejsou k dispozici</span>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +107,7 @@
                                     <h3>Oxid uhličitý</h3>
                                 </div>
                                 <div class="card-body">
-                                    <iframe id="iframe6" src="/data/oxid.txt" width="100%" height="42px"></iframe>
+                                    <span id="oxid">Data nejsou k dispozici</span>
                                 </div>
                             </div>
                         </div>
@@ -141,7 +117,7 @@
                                     <h3>Atmosférický tlak</h3>
                                 </div>
                                 <div class="card-body">
-                                    <iframe id="iframe7" src="/data/tlak.txt" width="100%" height="42px"></iframe>
+                                    <span id="tlak">Data nejsou k dispozici</span>
                                 </div>
                             </div>
                         </div>
@@ -164,6 +140,61 @@
         </section>
         <footer>
             <p>&copy; PASPAL.SPACE <?= date('Y') ?>
+                <script>
+                    function getTeplota(letter) {
+                        let div = $("#teplota");
+                        let url = "https://live.paspal.space/data/teplota.txt";
+                        $.get(url, function(data) {
+                            div.html(data);
+                        });
+                    }
+                    setInterval(getTeplota, 1000);
+
+                    function getTlak(letter) {
+                        let div = $("#tlak");
+                        let url = "https://live.paspal.space/data/tlak.txt";
+                        $.get(url, function(data) {
+                            div.html(data);
+                        });
+                    }
+                    setInterval(getTlak, 1000);
+
+                    function getZaznam(letter) {
+                        let div = $("#zaznam");
+                        let url = "https://live.paspal.space/data/zaznam.txt";
+                        $.get(url, function(data) {
+                            div.html(data);
+                        });
+                    }
+                    setInterval(getZaznam, 1000);
+
+                    function getVyska(letter) {
+                        let div = $("#vyska");
+                        let url = "https://live.paspal.space/data/vyska.txt";
+                        $.get(url, function(data) {
+                            div.html(data);
+                        });
+                    }
+                    setInterval(getVyska, 1000);
+
+                    function getZaznam(letter) {
+                        let div = $("#zaznam");
+                        let url = "https://live.paspal.space/data/zaznam.txt";
+                        $.get(url, function(data) {
+                            div.html(data);
+                        });
+                    }
+                    setInterval(getZaznam, 1000);
+
+                    function getMq4(letter) {
+                        let div = $("#mq4");
+                        let url = "https://live.paspal.space/data/mq4.txt";
+                        $.get(url, function(data) {
+                            div.html(data);
+                        });
+                    }
+                    setInterval(getMq4, 1000);
+                </script>
         </footer>
     </div>
 	</body>

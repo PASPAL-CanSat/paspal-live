@@ -10,7 +10,8 @@ if ($_GET['key'] == "sfdIUKebZzak")
         'oxid' => $_GET['oxid'],
         'mq4' => $_GET['mq4'],
         'gps_zd' => $_GET['qps_zd'],
-        'gps_zs' => $_GET['gps_zs']
+        'gps_zs' => $_GET['gps_zs'],
+        'vyska' => $_GET['vyska']
     );
 
     $data = Db::insert('zaznamy', $data);

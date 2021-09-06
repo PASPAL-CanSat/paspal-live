@@ -16,11 +16,10 @@ foreach ($data as $d)
     teplota($d['teplota']);
     vyska($d['vyska']);
     rychlost($d['rychlost']);
-    vlhkost($d['vlhkost']);
-    metan($d['metan']);
     gps_zs($d['gps_zs']);
     gps_zd($d['gps_zd']);
     oxid($d['oxid']);
+    oxid($d['mq4']);
     tlak($d['tlak']);
     zaznam($d['datum']);
 }
@@ -46,20 +45,6 @@ function rychlost($rychlost)
     fwrite($var, $cont);
     fclose($var);
 }
-function vlhkost($vlhkost)
-{
-    $cont = $vlhkost . " %";
-    $var=fopen("vlhkost.txt","w");
-    fwrite($var, $cont);
-    fclose($var);
-}
-function metan($metan)
-{
-    $cont = $metan . " %";
-    $var=fopen("metan.txt","w");
-    fwrite($var, $cont);
-    fclose($var);
-}
 function gps_zs($gps_zs)
 {
     $cont = $gps_zs;
@@ -78,6 +63,13 @@ function tlak($tlak)
 {
     $cont = $tlak . " Pa";
     $var=fopen("tlak.txt","w");
+    fwrite($var, $cont);
+    fclose($var);
+}
+function mq4($mq4)
+{
+    $cont = $mq4 . " %";
+    $var=fopen("mq4.txt","w");
     fwrite($var, $cont);
     fclose($var);
 }
