@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="405ee2b4-58f1-41f5-9c0b-5d107392373c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/data/battery.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/form.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/get_data.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/vlhkost.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/aktualizace.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/aktualizace.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/gps_zd.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/gps_zd.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/gps_zs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/gps_zs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mapa.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/mapa.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/mq4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mq4.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/oxid.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/oxid.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/rychlost.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/rychlost.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/rychlost.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data/teplota.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/teplota.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/tlak.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/tlak.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/vyska.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/vyska.txt" afterDir="false" />
@@ -43,7 +50,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PASPAL-web" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -64,7 +71,7 @@
       <workItem from="1630911690888" duration="2422000" />
       <workItem from="1630956166024" duration="2689000" />
       <workItem from="1630994576351" duration="2287000" />
-      <workItem from="1631043537139" duration="89000" />
+      <workItem from="1631043537139" duration="7676000" />
     </task>
     <servers />
   </component>

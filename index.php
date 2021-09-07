@@ -15,11 +15,19 @@
         <!-- Script -->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <!-- php -->
+        <?php
+        header("Expires: 0");
+        header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+        header("Cache-Control: no-store, no-cache, must-revalidate");
+        header("Cache-Control: post-check=0, pre-check=0", false);
+        header("Pragma: no-cache");
+        ?>
 	</head>
     <script>
         window.setInterval(function() {
             aktualizaceMapy()
-        }, 8000);
+        }, 10000);
 
         function aktualizaceMapy() {
             console.log('Aktualizace mapy..');
@@ -60,20 +68,20 @@
                         <div class="col">
                             <div class="card" id="panel-card">
                                 <div class="card-header" id="panel-card-header">
-                                    <h3>Aktuální rychlost</h3>
+                                    <h3>Aktuální teplota</h3>
                                 </div>
                                 <div class="card-body">
-                                    <span id="rychlost">Data nejsou k dispozici</span>
+                                    <span id="teplota">Data nejsou k dispozici</span>
                                 </div>
                             </div>
                         </div>
                         <div class="col">
                             <div class="card" id="panel-card">
                                 <div class="card-header" id="panel-card-header">
-                                    <h3>Aktuální teplota</h3>
+                                    <h3>Stav baterky</h3>
                                 </div>
                                 <div class="card-body">
-                                    <span id="teplota">Data nejsou k dispozici</span>
+                                    <span id="battery">Data nejsou k dispozici</span>
                                 </div>
                             </div>
                         </div>
@@ -93,7 +101,7 @@
                         <div class="col">
                             <div class="card" id="panel-card">
                                 <div class="card-header" id="panel-card-header">
-                                    <h3>Přírodní plyny</h3>
+                                    <h3>Přírodní plyny (Methan)</h3>
                                 </div>
                                 <div class="card-body">
                                     <span id="mq4">Data nejsou k dispozici</span>
@@ -107,6 +115,16 @@
                                 </div>
                                 <div class="card-body">
                                     <span id="oxid">Data nejsou k dispozici</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card" id="panel-card">
+                                <div class="card-header" id="panel-card-header">
+                                    <h3>Vlhkost</h3>
+                                </div>
+                                <div class="card-body">
+                                    <span id="vlhkost">Data nejsou k dispozici</span>
                                 </div>
                             </div>
                         </div>
@@ -138,7 +156,7 @@
             </div>
         </section>
         <footer>
-            <p>&copy; PASPAL.SPACE <?= date('Y') ?>
+            <p>&copy; PASPAL.SPACE <?= date('Y') ?> - <a href="/data/form.php">Zobrazit záznam dat</a>
                 <script>
                     function getTeplota() {
                         let div = $("#teplota");
@@ -176,15 +194,6 @@
                     }
                     setInterval(getVyska, 1000);
 
-                    function getZaznam() {
-                        let div = $("#zaznam");
-                        let url = "/data/zaznam.txt";
-                        $.get(url, function(data) {
-                            div.html(data);
-                        });
-                    }
-                    setInterval(getZaznam, 1000);
-
                     function getMq4() {
                         let div = $("#mq4");
                         let url = "/data/mq4.txt";
@@ -202,6 +211,24 @@
                         });
                     }
                     setInterval(getOxid, 1000);
+
+                    function getVlhkost() {
+                        let div = $("#vlhkost");
+                        let url = "/data/vlhkost.txt";
+                        $.get(url, function(data) {
+                            div.html(data);
+                        });
+                    }
+                    setInterval(getVlhkost, 1000);
+
+                    function getBattery() {
+                        let div = $("#battery");
+                        let url = "/data/battery.txt";
+                        $.get(url, function(data) {
+                            div.html(data);
+                        });
+                    }
+                    setInterval(getBattery, 1000);
                 </script>
         </footer>
     </div>

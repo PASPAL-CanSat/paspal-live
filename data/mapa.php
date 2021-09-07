@@ -32,7 +32,7 @@ function gps_zd() {
         map = new OpenLayers.Map({
             div: "map", projection: "EPSG:3857",
             layers: [new OpenLayers.Layer.OSM(), overlay],
-            center: myLocation.getBounds().getCenterLonLat(), zoom: 18
+            center: myLocation.getBounds().getCenterLonLat(), zoom: 14
         });
     }
 </script>
