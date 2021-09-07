@@ -140,7 +140,7 @@
         <footer>
             <p>&copy; PASPAL.SPACE <?= date('Y') ?>
                 <script>
-                    function getTeplota(letter) {
+                    function getTeplota() {
                         let div = $("#teplota");
                         let url = "/data/teplota.txt";
                         $.get(url, function(data) {
@@ -149,7 +149,7 @@
                     }
                     setInterval(getTeplota, 1000);
 
-                    function getTlak(letter) {
+                    function getTlak() {
                         let div = $("#tlak");
                         let url = "/data/tlak.txt";
                         $.get(url, function(data) {
@@ -158,7 +158,7 @@
                     }
                     setInterval(getTlak, 1000);
 
-                    function getZaznam(letter) {
+                    function getZaznam() {
                         let div = $("#zaznam");
                         let url = "/data/zaznam.txt";
                         $.get(url, function(data) {
@@ -167,7 +167,7 @@
                     }
                     setInterval(getZaznam, 1000);
 
-                    function getVyska(letter) {
+                    function getVyska() {
                         let div = $("#vyska");
                         let url = "/data/vyska.txt";
                         $.get(url, function(data) {
@@ -176,7 +176,7 @@
                     }
                     setInterval(getVyska, 1000);
 
-                    function getZaznam(letter) {
+                    function getZaznam() {
                         let div = $("#zaznam");
                         let url = "/data/zaznam.txt";
                         $.get(url, function(data) {
@@ -185,7 +185,7 @@
                     }
                     setInterval(getZaznam, 1000);
 
-                    function getMq4(letter) {
+                    function getMq4() {
                         let div = $("#mq4");
                         let url = "/data/mq4.txt";
                         $.get(url, function(data) {
@@ -194,7 +194,7 @@
                     }
                     setInterval(getMq4, 1000);
 
-                    function getOxid(letter) {
+                    function getOxid() {
                         let div = $("#oxid");
                         let url = "/data/oxid.txt";
                         $.get(url, function(data) {
