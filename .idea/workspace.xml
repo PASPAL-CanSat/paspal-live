@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="405ee2b4-58f1-41f5-9c0b-5d107392373c" name="Default Changelist" comment="" />
+    <list default="true" id="405ee2b4-58f1-41f5-9c0b-5d107392373c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/data/mq4.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/aktualizace.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/aktualizace.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mapa.php" beforeDir="false" afterPath="$PROJECT_DIR$/data/mapa.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +38,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../daniel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -52,6 +58,7 @@
       <workItem from="1624734729315" duration="83000" />
       <workItem from="1630911690888" duration="2422000" />
       <workItem from="1630956166024" duration="2689000" />
+      <workItem from="1630994576351" duration="2287000" />
     </task>
     <servers />
   </component>
@@ -68,5 +75,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

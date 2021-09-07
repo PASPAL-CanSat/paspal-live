@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html land="cs-cz">
 <head>
-    <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+    <title>PASPAL - LIVE</title>
+    <script src="https://www.openlayers.org/api/OpenLayers.js"></script>
 </head>
 <body onload="init()">
 <?php

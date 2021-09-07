@@ -19,7 +19,7 @@ foreach ($data as $d)
     gps_zs($d['gps_zs']);
     gps_zd($d['gps_zd']);
     oxid($d['oxid']);
-    oxid($d['mq4']);
+    mq4($d['mq4']);
     tlak($d['tlak']);
     zaznam($d['datum']);
 }

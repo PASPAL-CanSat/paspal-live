@@ -13,7 +13,6 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
         <!-- Script -->
-        <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	</head>
@@ -51,7 +50,7 @@
                         <div class="col">
                             <div class="card" id="panel-card">
                                 <div class="card-header" id="panel-card-header">
-                                    <h3>Aktuální výška n. m.</h3>
+                                    <h3>Aktuální výška</h3>
                                 </div>
                                 <div class="card-body">
                                     <span id="vyska">Data nejsou k dispozici</span>
@@ -114,7 +113,7 @@
                         <div class="col">
                             <div class="card" id="panel-card">
                                 <div class="card-header" id="panel-card-header">
-                                    <h3>Atmosférický tlak</h3>
+                                    <h3>Atmos. tlak</h3>
                                 </div>
                                 <div class="card-body">
                                     <span id="tlak">Data nejsou k dispozici</span>
@@ -143,7 +142,7 @@
                 <script>
                     function getTeplota(letter) {
                         let div = $("#teplota");
-                        let url = "https://live.paspal.space/data/teplota.txt";
+                        let url = "/data/teplota.txt";
                         $.get(url, function(data) {
                             div.html(data);
                         });
@@ -152,7 +151,7 @@
 
                     function getTlak(letter) {
                         let div = $("#tlak");
-                        let url = "https://live.paspal.space/data/tlak.txt";
+                        let url = "/data/tlak.txt";
                         $.get(url, function(data) {
                             div.html(data);
                         });
@@ -161,7 +160,7 @@
 
                     function getZaznam(letter) {
                         let div = $("#zaznam");
-                        let url = "https://live.paspal.space/data/zaznam.txt";
+                        let url = "/data/zaznam.txt";
                         $.get(url, function(data) {
                             div.html(data);
                         });
@@ -170,7 +169,7 @@
 
                     function getVyska(letter) {
                         let div = $("#vyska");
-                        let url = "https://live.paspal.space/data/vyska.txt";
+                        let url = "/data/vyska.txt";
                         $.get(url, function(data) {
                             div.html(data);
                         });
@@ -179,7 +178,7 @@
 
                     function getZaznam(letter) {
                         let div = $("#zaznam");
-                        let url = "https://live.paspal.space/data/zaznam.txt";
+                        let url = "/data/zaznam.txt";
                         $.get(url, function(data) {
                             div.html(data);
                         });
@@ -188,12 +187,21 @@
 
                     function getMq4(letter) {
                         let div = $("#mq4");
-                        let url = "https://live.paspal.space/data/mq4.txt";
+                        let url = "/data/mq4.txt";
                         $.get(url, function(data) {
                             div.html(data);
                         });
                     }
                     setInterval(getMq4, 1000);
+
+                    function getOxid(letter) {
+                        let div = $("#oxid");
+                        let url = "/data/oxid.txt";
+                        $.get(url, function(data) {
+                            div.html(data);
+                        });
+                    }
+                    setInterval(getOxid, 1000);
                 </script>
         </footer>
     </div>
