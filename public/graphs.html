@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>Form</title>
+</head>
+<body>
+<form method="get" action="/graph" target="_blank">
+    <select name="type">
+        <option value="pressure">Tlak</option>
+        <option value="humidity">Vlhkost</option>
+        <option value="temperature">Teplota</option>
+        <option value="overload">Přetížení</option>
+        <option value="height">Výška</option>
+        <option value="height_esp">Výška</option>
+        <option value="gyroscope_x">Gyroskop X</option>
+        <option value="gyroscope_y">Gyroskop Y</option>
+        <option value="gyroscope_z">Gyroskop Z</option>
+        <option value="battery">Baterka</option>
+        <option value="battery_esp">Baterka ESP</option>
+        <option value="speed">Rychlost</option>
+    </select>
+    <input type="datetime-local" name="from">
+    <input type="datetime-local" name="to">
+    <input type="submit">
+</form>
+</body>
+</html>

@@ -1,0 +1,14 @@
+body {
+  background-color: #1e2125;
+  color: white;
+  font-family: "Yu Gothic";
+}
+#data-1 {
+  margin-top: 20px;
+}
+#data-2 {
+  margin-top: 20px;
+}
+#map-box {
+  margin-top: 20px;
+}

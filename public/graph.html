@@ -1,0 +1,111 @@
+<html>
+<head>
+    <title>DATA V GRAFU</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div>
+    <canvas id="graph" width="400" height="100" role="img"></canvas>
+</div>
+<div id="datasaver"></div>
+<script>
+    window.labels_from_api = [];
+    window.data_from_api = [];
+    // Call API
+    let params_url = new URLSearchParams(location.search);
+    params_url.get('type');
+    fetch('/api/get-data?type=' + params_url.get('type') + '&from=' + params_url.get('from') + '&to=' + params_url.get('to'))
+        .then(response => response.json())
+        .then(data =>
+            set_data(data)
+        );
+    function add_label(data) {
+        window.labels_from_api.push(data['timestamp'].replace('T', ' ').replace('.000Z', '').replaceAll('-', '.'));
+    }
+    function add_data(data) {
+        window.data_from_api.push(data[params_url.get('type')]);
+    }
+    function set_data(data) {
+        data.forEach(add_label);
+        data.forEach(add_data);
+        console.log(window.data_from_api)
+        console.log(window.labels_from_api)
+        set_graph()
+    }
+    function get_value(type) {
+        switch(type) {
+            case 'humidity':
+                window.tvalue = '%';
+                break;
+            case 'temperature':
+                window.tvalue = '°C';
+                break;
+            case 'pressure':
+                window.tvalue = 'hPa';
+                break;
+            case 'battery':
+                window.tvalue = '%';
+                break;
+            case 'battery_esp':
+                window.tvalue = '%';
+                break;
+            case 'overload':
+                window.tvalue = 'g';
+                break;
+            case 'height':
+                window.tvalue = 'm. n. m.';
+                break;
+            case 'height_esp':
+                window.tvalue = 'm. n. m.';
+                break;
+            case 'speed':
+                window.tvalue = 'm/s';
+                break;
+            default:
+                window.tvalue = '';
+                break;
+        }
+    }
+    function set_graph() {
+        const labels = window.labels_from_api;
+
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: params_url.get('type'),
+                backgroundColor: 'rgb(0, 0, 0)',
+                borderColor: 'rgb(0, 0, 0)',
+                data: window.data_from_api,
+            }]
+        };
+
+        get_value(params_url.get('type'))
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                scales: {
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: window.tvalue,
+                        }
+                    },
+                }
+            }
+        };
+
+        construct_graph(config)
+    }
+</script>
+<script>
+    function construct_graph(config) {
+        const myChart = new Chart(
+            document.getElementById('graph'),
+            config
+        );
+    }
+</script>
+</body>
+</html>
